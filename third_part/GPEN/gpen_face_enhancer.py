@@ -50,6 +50,7 @@ class FaceEnhancement(object):
         return mask.astype(np.float32)
     
     def process(self, img, ori_img, bbox=None, face_enhance=True, possion_blending=False):
+        global mask_sharp
         if self.use_sr:
             img_sr = self.srmodel.process(img)
             if img_sr is not None:
